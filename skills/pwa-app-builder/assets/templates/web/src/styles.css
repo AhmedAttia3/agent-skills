@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-50 text-ink-900 antialiased dark:bg-ink-900 dark:text-ink-50;
+  font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+/* شبكة خفيفة في الخلفية */
+.app-bg {
+  background-image: radial-gradient(circle at 12% 8%, rgba({{BRAND_600_RGB}}, 0.14), transparent 45%),
+    radial-gradient(circle at 88% 92%, rgba(255, 125, 61, 0.12), transparent 40%);
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-white shadow-card ring-1 ring-ink-200/60 dark:bg-ink-800 dark:ring-ink-700/60;
+  }
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition
+      active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow hover:bg-brand-700;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink-700 hover:bg-ink-100 dark:text-ink-100 dark:hover:bg-ink-700/60;
+  }
+  .btn-soft {
+    @apply btn bg-brand-50 text-brand-700 hover:bg-brand-100 dark:bg-ink-700 dark:text-brand-200 dark:hover:bg-ink-700;
+  }
+  .btn-danger {
+    @apply btn bg-red-50 text-red-700 hover:bg-red-100 dark:bg-red-900/30 dark:text-red-300;
+  }
+  .input {
+    @apply w-full rounded-xl border-0 bg-ink-100/80 px-4 py-3 text-sm outline-none ring-1 ring-transparent
+      transition placeholder:text-ink-400 focus:bg-white focus:ring-2 focus:ring-brand-500 dark:bg-ink-700/70 dark:focus:bg-ink-700;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-bold text-ink-600 dark:text-ink-300;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold;
+  }
+}
+
+/* ── الموبايل: منع التكبير التلقائي للصفحة عند التركيز على حقل كتابة ────────
+   iOS/Safari يكبّر الصفحة تلقائياً عند التركيز على أي input/select/textarea
+   حجم خطه أقل من 16px (ثم يبقى مكبّراً بعد إغلاق لوحة المفاتيح)، فنرفع حجم خط
+   الحقول إلى 16px على الشاشات الصغيرة فقط (الشاشات الكبيرة تبقى بحجمها الأصغر). */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (hover: none) and (pointer: coarse), screen and (max-width: 767px) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']),
+  select,
+  textarea {
+    /* !important لازمة لتجاوز أدوات Tailwind مثل text-sm على نفس الحقل */
+    font-size: 16px !important;
+  }
+}
+
+/* شرائط تمرير أنيقة */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 110, 105, 0.35);
+  border-radius: 999px;
+}
+
+/* حركة التدوير في شاشة الاقتراح */
+@keyframes slot-flip {
+  0% {
+    transform: translateY(14px) scale(0.96);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.slot-flip {
+  animation: slot-flip 0.11s linear;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.skeleton {
+  @apply relative overflow-hidden rounded-xl bg-ink-200/70 dark:bg-ink-700/60;
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(100%);
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shimmer 1.2s infinite;
+}
+
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* صف التصنيفات الأفقي: بلا شريط تمرير مرئي */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

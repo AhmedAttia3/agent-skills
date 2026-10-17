@@ -1,0 +1,21 @@
+{
+  "_note": "تصنيفات الكتالوج العام (وسوم). slug إنجليزي ثابت، والاسم العربي للعرض. sort_order = ترتيب الشرائح في الواجهة.",
+  "tags": [
+    { "slug": "egyptian",      "nameAr": "مصري",           "nameEn": "Egyptian",     "emoji": "🇪🇬", "sortOrder": 10 },
+    { "slug": "levantine",     "nameAr": "شامي",           "nameEn": "Levantine",    "emoji": "🫓", "sortOrder": 20 },
+    { "slug": "gulf",          "nameAr": "خليجي",          "nameEn": "Gulf",         "emoji": "🍖", "sortOrder": 30 },
+    { "slug": "maghreb",       "nameAr": "مغربي",          "nameEn": "Maghrebi",     "emoji": "🏺", "sortOrder": 40 },
+    { "slug": "world",         "nameAr": "عالمي",          "nameEn": "World",        "emoji": "🌍", "sortOrder": 50 },
+    { "slug": "grilled",       "nameAr": "مشويات",         "nameEn": "Grilled",      "emoji": "🔥", "sortOrder": 60 },
+    { "slug": "seafood",       "nameAr": "بحري",           "nameEn": "Seafood",      "emoji": "🐟", "sortOrder": 70 },
+    { "slug": "rice-pasta",    "nameAr": "رز ومكرونة",     "nameEn": "Rice & Pasta", "emoji": "🍚", "sortOrder": 80 },
+    { "slug": "soups",         "nameAr": "شوربات",         "nameEn": "Soups",        "emoji": "🍲", "sortOrder": 90 },
+    { "slug": "appetizers",    "nameAr": "مقبلات",         "nameEn": "Appetizers",   "emoji": "🥗", "sortOrder": 100 },
+    { "slug": "light",         "nameAr": "أكلات خفيفة",    "nameEn": "Light bites",  "emoji": "🥪", "sortOrder": 110 },
+    { "slug": "desserts",      "nameAr": "حلويات",         "nameEn": "Desserts",     "emoji": "🍮", "sortOrder": 120 },
+    { "slug": "drinks",        "nameAr": "مشروبات",        "nameEn": "Drinks",       "emoji": "🥤", "sortOrder": 130 },
+    { "slug": "vegetarian",    "nameAr": "نباتي",          "nameEn": "Vegetarian",   "emoji": "🥬", "sortOrder": 140 },
+    { "slug": "quick",         "nameAr": "سريع وسهل",      "nameEn": "Quick & easy", "emoji": "⚡", "sortOrder": 150 },
+    { "slug": "traditional-breakfast", "nameAr": "فطور تقليدي", "nameEn": "Traditional breakfast", "emoji": "🌅", "sortOrder": 160 }
+  ]
+}

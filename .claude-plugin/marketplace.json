@@ -1,24 +1,24 @@
 {
-  "name": "attia-skills",
+  "name": "agent-skills",
   "owner": {
     "name": "Ahmed Attia",
     "url": "https://github.com/AhmedAttia3"
   },
   "metadata": {
     "description": "Hand-picked Agent Skills for real engineering work, maintained by Ahmed Attia.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
-      "name": "attia-skills",
+      "name": "agent-skills",
       "source": "./",
-      "description": "Hand-picked Agent Skills for real engineering work: safe installation and update workflows, plus whatever earns its place next.",
+      "description": "Hand-picked Agent Skills for real engineering work: safe installation and update workflows, PWA app scaffolding, plus whatever earns its place next.",
       "author": {
         "name": "Ahmed Attia",
         "url": "https://github.com/AhmedAttia3"
       },
-      "homepage": "https://github.com/AhmedAttia3/attia-skills",
-      "repository": "https://github.com/AhmedAttia3/attia-skills",
+      "homepage": "https://github.com/AhmedAttia3/agent-skills",
+      "repository": "https://github.com/AhmedAttia3/agent-skills",
       "license": "MIT",
       "keywords": [
         "agent-skills",
@@ -26,6 +26,7 @@
         "codex",
         "cursor",
         "gemini-cli",
+        "pwa",
         "sanad"
       ],
       "category": "development"

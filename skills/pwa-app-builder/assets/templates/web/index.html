@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="{{THEME_LIGHT}}" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="{{THEME_DARK}}" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="{{APP_NAME}} — احفظ وجباتك المفضلة ودع التطبيق يقترح عليك وجبتك القادمة" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- تطبيق الثيم المحفوظ قبل أول رسم: كي يطابق شريط حالة iOS ثيم التطبيق عند الإقلاع
+         (iOS يحدّد لون الشريط عند التحميل فقط ولا يحدّثه ديناميكيًا — WebKit bugs 309956 / 306074 / 301756) -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('{{PREFIX}}_theme');
+          if (t !== 'light' && t !== 'dark') {
+            t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.classList.toggle('dark', t === 'dark');
+          document.documentElement.classList.toggle('light', t !== 'dark');
+          var color = t === 'dark' ? '{{THEME_DARK}}' : '{{THEME_LIGHT}}';
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+            meta.setAttribute('content', color);
+          });
+        } catch (err) {
+          /* تجاهل: الثيم سيُطبَّق لاحقًا من React */
+        }
+      })();
+    </script>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="{{APP_NAME}}" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>{{APP_NAME}}</title>
+  </head>
+  <body class="bg-ink-50 dark:bg-ink-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+# تجاهل الملفات غير المطلوبة في git
+node_modules/
+server/public/
+screenshots/
+*.log
+npm-install.log
+build.log
+.DS_Store
+.env
+.env.*
+.sanad/
+
+# بيانات التشغيل (قواعد البيانات، الرفعات، النسخ الاحتياطية، المفاتيح) — لا تُحفظ في git
+data/*
+# استثناء: ملفات الكتالوج المصدرية (مؤلَّفة يدويًا) تُحفظ في git
+!data/catalog/

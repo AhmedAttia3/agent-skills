@@ -1,0 +1,45 @@
+{
+  "name": "{{APP_SLUG}}",
+  "version": "1.0.0",
+  "private": true,
+  "description": "{{APP_NAME}} - تطبيق ويب React + PWA لاقتراح الوجبات",
+  "type": "commonjs",
+  "scripts": {
+    "dev:web": "vite",
+    "dev:api": "node server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "serve": "./scripts/run.sh restart",
+    "stop": "./scripts/run.sh stop",
+    "logs": "./scripts/run.sh logs",
+    "tunnel": "./scripts/tunnel.sh start",
+    "tunnel:url": "./scripts/tunnel.sh url",
+    "test:api": "./scripts/test-api.sh",
+    "setup:keys": "node scripts/gen-keys.js",
+    "push:test": "node scripts/push-test.js",
+    "icons": "python3 scripts/gen-icons.py",
+    "catalog:sync": "node scripts/catalog-sync.js",
+    "catalog:images": "node scripts/catalog-images.js",
+    "db:backup": "./scripts/db-backup.sh",
+    "user:reset-password": "node scripts/reset-password.js",
+    "user:check-password": "node scripts/check-password.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.11"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

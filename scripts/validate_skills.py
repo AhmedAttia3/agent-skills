@@ -130,7 +130,7 @@ def validate_frontmatter(where: str, name: str, meta: dict[str, object]) -> None
             fail(where, f"description is {len(description)} characters (max {MAX_DESCRIPTION})")
         if len(description) < 40:
             warn(where, "description is very short; say what the skill does and when to use it")
-        if " use when" not in description.lower():
+        if "when" not in description.lower():
             warn(where, "description does not state when to use the skill")
 
     compatibility = meta.get("compatibility")

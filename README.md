@@ -1,4 +1,4 @@
-# Attia Skills
+# Agent Skills
 
 A small, hand-picked collection of **Agent Skills** — reusable instruction packs that teach AI coding agents (Claude Code, Codex, Gemini CLI, Cursor, Copilot, and any other harness that reads `SKILL.md`) how to perform a specific job correctly.
 
@@ -9,14 +9,15 @@ Curated, not generated. Every skill here is used in real work, scoped to one job
 | Skill | What it does | Use it when |
 | --- | --- | --- |
 | [`install-sanad`](skills/install-sanad/SKILL.md) | Guided, safety-first install and update of Sanad (Client + local/remote Agent) on macOS, Windows, or Linux. | You want an agent to inspect a machine and install, update, or pair Sanad without guessing. |
+| [`pwa-app-builder`](skills/pwa-app-builder/SKILL.md) | Turns an idea into a working, installable PWA: Express + node:sqlite backend, React/Vite/Tailwind front end, offline support, Web Push, RTL/i18n, one-command scaffold. | Someone asks for "an app for X" — a tracker, dashboard, portal, booking or habit app — and expects it to run, install on a phone, and be shareable. |
 
 ## Install
 
 ### Claude Code (marketplace)
 
 ```bash
-/plugin marketplace add AhmedAttia3/attia-skills
-/plugin install attia-skills@attia-skills
+/plugin marketplace add AhmedAttia3/agent-skills
+/plugin install agent-skills@agent-skills
 ```
 
 ### Any agent with a skills directory
@@ -30,8 +31,8 @@ Skills are plain folders, so installation is a clone (or download) plus a copy i
 | Codex / Gemini CLI / Cursor | their configured skills directory |
 
 ```bash
-git clone https://github.com/AhmedAttia3/attia-skills.git
-cp -R attia-skills/skills/install-sanad ~/.claude/skills/
+git clone https://github.com/AhmedAttia3/agent-skills.git
+cp -R agent-skills/skills/install-sanad ~/.claude/skills/
 ```
 
 Keep the folder name — it must match the `name` field inside `SKILL.md`.
@@ -43,7 +44,7 @@ Point your agent at the raw `SKILL.md` path and ask it to follow it. No runtime,
 ## Repository layout
 
 ```
-attia-skills/
+agent-skills/
 ├── README.md                      # this index
 ├── CONTRIBUTING.md                # authoring rules and review checklist
 ├── CHANGELOG.md
@@ -113,12 +114,14 @@ MIT — see [LICENSE](LICENSE).
 **التثبيت في Claude Code:**
 
 ```bash
-/plugin marketplace add AhmedAttia3/attia-skills
-/plugin install attia-skills@attia-skills
+/plugin marketplace add AhmedAttia3/agent-skills
+/plugin install agent-skills@agent-skills
 ```
 
 **أو بالتثبيت اليدوي:** انسخ مجلد المهارة إلى مسار المهارات الذي يقرأه وكيلك، مثل `~/.claude/skills/` أو `.agents/skills/` داخل المشروع، مع الحفاظ على اسم المجلد كما هو لأنه يجب أن يطابق حقل `name`.
 
 **قواعد التأليف باختصار:** مهارة واحدة لكل مهمة؛ `SKILL.md` خريطة موجزة (أقل من 500 سطر) والتفاصيل في `references/`؛ الوصف `description` هو ما يحدد متى تُفعّل المهارة؛ الخطوات الهشّة تُكتب كسكربتات؛ ولا أسرار ولا مسارات مطلقة داخل أي مهارة.
+
+**المهارات المتاحة حاليًا:** `install-sanad` (تثبيت وتحديث سند بأمان) و`pwa-app-builder` (بناء تطبيق PWA جاهز من فكرة، بأمر واحد يُنشئ الهيكل الكامل ثم يتحقق منه).
 
 </details>

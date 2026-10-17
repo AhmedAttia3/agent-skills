@@ -1,0 +1,41 @@
+{
+  "skill_name": "pwa-app-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make me an app to track my gym workouts and the weights I lift, installable on my phone, in Arabic. I have an empty folder and a small Ubuntu VM.",
+      "expected_output": "Restates the idea in five lines, asks at most five preference questions with three options each, answers a short plan back and waits, then scaffolds with the fixed stack and verifies the pipeline before customising the domain.",
+      "files": [],
+      "assertions": [
+        "Does not ask more than five questions and never asks about topics it can decide itself.",
+        "Uses the fixed stack (Express 4 + node:sqlite + Vite/React) and refuses native modules such as bcrypt, sharp, or better-sqlite3.",
+        "Runs scripts/check-host.sh before planning and adapts long commands to background execution when the host is low on RAM.",
+        "Proves npm install, npm run build, health check, and the API smoke test pass before rewriting the demo domain.",
+        "Keeps every user-facing string in both Arabic and English dictionaries and uses logical RTL-safe utilities."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "For the app server, use PostgreSQL and bcrypt like a normal project, and set it up with Docker Compose.",
+      "expected_output": "Explains the verified host constraints (no compiler, no sudo, no database server, ~300MB RAM) and proposes the equivalent standard-library solution instead of silently complying or silently ignoring the request.",
+      "files": [],
+      "assertions": [
+        "States the concrete constraint that makes the requested dependency impossible instead of refusing generically.",
+        "Offers node:sqlite with crypto.scrypt plus timingSafeEqual as the equivalent.",
+        "Does not add Docker, Postgres, or any native-code dependency to the scaffold.",
+        "Leaves the decision with the user after presenting the tradeoff, rather than switching stacks unilaterally."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a Go microservice that ingests Kafka events and exposes a gRPC health endpoint for our Kubernetes cluster.",
+      "expected_output": "The skill does not activate: this is not a web app, PWA, or user-facing product, and none of its stack, phases, or verification steps apply.",
+      "files": [],
+      "assertions": [
+        "Does not scaffold a React/Vite/Express project.",
+        "Does not claim the fixed stack is mandatory for unrelated work.",
+        "Addresses the Go/Kafka request directly without the PWA workflow."
+      ]
+    }
+  ]
+}

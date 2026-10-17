@@ -1,0 +1,347 @@
+{
+  "_note": "إسناد صور الكتالوج (يُطبّقه catalog-sync تلقائياً على القاعدة).",
+  "images": {
+    "koshari": {
+      "file": "koshari.jpg",
+      "credit": "Basma",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Egyptian_Koshari.jpg"
+    },
+    "molokheya": {
+      "file": "molokheya.jpg",
+      "credit": "Yosi I",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Molokheya_hi_res2.JPG"
+    },
+    "ful-medames": {
+      "file": "ful-medames.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ful_Medames.JPG"
+    },
+    "taameya": {
+      "file": "taameya.jpg",
+      "credit": "Hosary",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fool_and_falafel.jpg"
+    },
+    "shakshuka": {
+      "file": "shakshuka.jpg",
+      "credit": "Jarosław Ceborski jarson",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shakshuka_(Unsplash).jpg"
+    },
+    "kofta-mashwiya": {
+      "file": "kofta-mashwiya.jpg",
+      "credit": "Strawberrypotato",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Grilled_Kefta_Skewers.jpg"
+    },
+    "hawawshi": {
+      "file": "hawawshi.jpg",
+      "credit": "Mohamed Moheyeldin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hawawshi_2_Mohamed_Moheyeldin.jpg"
+    },
+    "bamia": {
+      "file": "bamia.jpg",
+      "credit": "Benoît Prieur",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Du_bamia_avec_du_riz_en_f%C3%A9vrier_2022.jpg"
+    },
+    "roz-moaammar": {
+      "file": "roz-moaammar.jpg",
+      "credit": "Personal Creations",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Baked_risotto_casserole_rice_asparagus_and_peas_(15414849358).jpg"
+    },
+    "mesaa-a": {
+      "file": "mesaa-a.jpg",
+      "credit": "Joey Doll",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eggplant_Potato_Moussaka_(41367622210).jpg"
+    },
+    "feteer-mesahltet": {
+      "file": "feteer-mesahltet.jpg",
+      "credit": "Mohamed Ouda",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Egyptian-food-45.jpg"
+    },
+    "fatta": {
+      "file": "fatta.jpg",
+      "credit": "Uwe a",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palestinian_Hummus_Fatteh.jpg"
+    },
+    "mahshi-koronb": {
+      "file": "mahshi-koronb.jpg",
+      "credit": "Shixart1985",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg"
+    },
+    "kibda-iskandarani": {
+      "file": "kibda-iskandarani.jpg",
+      "credit": "Hassan Hassoon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:%D8%B7%D8%A8%D9%82_%D9%83%D8%A8%D8%AF%D8%A9_%D9%88%D8%B3%D9%84%D8%B7%D8%A9.jpg"
+    },
+    "sogok-iskandarani": {
+      "file": "sogok-iskandarani.jpg",
+      "credit": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yerevan,_Sujuk,_Basturma,_Armenian_dried_meat,_Armenia.jpg"
+    },
+    "sayadeya": {
+      "file": "sayadeya.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sayadiyah_Fish.jpg"
+    },
+    "macarona-bechamel": {
+      "file": "macarona-bechamel.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pasta_of_the_day_-_Fabio%27s_2026-03-31.jpg"
+    },
+    "shorba-lisan-asfour": {
+      "file": "shorba-lisan-asfour.jpg",
+      "credit": "Karen and Brad Emerson",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lemon_chicken_orzo_soup.jpg"
+    },
+    "salatet-tahina": {
+      "file": "salatet-tahina.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tahini_with_oil.JPG"
+    },
+    "basbousa": {
+      "file": "basbousa.jpg",
+      "credit": "Bedtimepiano",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vegan_Basbousa_by_Uncle_Lou%27s_Kitchen.jpg"
+    },
+    "om-ali": {
+      "file": "om-ali.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Umm_Ali.JPG"
+    },
+    "roz-bel-laban": {
+      "file": "roz-bel-laban.jpg",
+      "credit": "Peachyeung316",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chinese_black_rice_pudding_and_Thai_coconuts_Pudding_at_hk.jpg"
+    },
+    "hamam-mahshi": {
+      "file": "hamam-mahshi.jpg",
+      "credit": "Darenwelsh",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pigeon_birthday.jpg"
+    },
+    "hummus": {
+      "file": "hummus.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Homemade_hummus_and_pitta_-_Long_Man_Inn_2024-12-18.jpg"
+    },
+    "mutabbal": {
+      "file": "mutabbal.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:BABA_GANOUSH_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg"
+    },
+    "tabbouleh": {
+      "file": "tabbouleh.jpg",
+      "credit": "Fructibus",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tabbouleh_with_avocado_instead_of_bulgur_A.jpg"
+    },
+    "fattoush": {
+      "file": "fattoush.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fattoush_1.JPG"
+    },
+    "kibbeh-makliyeh": {
+      "file": "kibbeh-makliyeh.jpg",
+      "credit": "Dr. Bernd Gross",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fried_lamb_kibbeh_1.JPG"
+    },
+    "shish-tawook": {
+      "file": "shish-tawook.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shish_Taouk.JPG"
+    },
+    "manakish": {
+      "file": "manakish.jpg",
+      "credit": "Guilhem Vellut from Annecy, France",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Manakish_@_Marina_Caf%C3%A9_@_Evening_@_Abu_Dhabi_(16042146541).jpg"
+    },
+    "shawarma-dajaj": {
+      "file": "shawarma-dajaj.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chicken_Shawarma_Platter_-_Lavash_2025-02-10.jpg"
+    },
+    "freekeh-dajaj": {
+      "file": "freekeh-dajaj.jpg",
+      "credit": "Kristen Taylor",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Freekeh_with_roasted_vegetables.jpg"
+    },
+    "kunafa": {
+      "file": "kunafa.jpg",
+      "credit": "Theipu",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Knafeh_From_Yaffa_Knafeh.jpg"
+    },
+    "mansaf": {
+      "file": "mansaf.jpg",
+      "credit": "Abdulla aljammal",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mansaf_1.jpg"
+    },
+    "kabsa": {
+      "file": "kabsa.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kabsa_1.JPG"
+    },
+    "mandi": {
+      "file": "mandi.jpg",
+      "credit": "Moheen Reeyad",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mandi_Lamb_Shank,_Lepak_@_Sultan,_62_Bussorah_St,_Singapore_(02).jpg"
+    },
+    "madrooba": {
+      "file": "madrooba.jpg",
+      "credit": "AmnaMF",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Madrouba.jpg"
+    },
+    "harees": {
+      "file": "harees.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Harees.JPG"
+    },
+    "margoog": {
+      "file": "margoog.jpg",
+      "credit": "Serge Melki",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Markouk_-_Bread_on_Saje.jpg"
+    },
+    "thareed": {
+      "file": "thareed.jpg",
+      "credit": "U.S. Air Force AFCENT by Staff Sgt. Caleb Roland",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:AFCENT_delivers_Jordanian_humanitarian_aid_to_Gaza_(8292261).jpg"
+    },
+    "luqaimat": {
+      "file": "luqaimat.jpg",
+      "credit": "Basak",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:20241207_Bursa%27da_lokma_kuru%C4%9Fu.jpg"
+    },
+    "arabic-coffee": {
+      "file": "arabic-coffee.jpg",
+      "credit": "Justwiki",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arabic_copper_coffee_Dallah_(3).jpg"
+    },
+    "couscous": {
+      "file": "couscous.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tomato_%26_Couscous_Salad_-_The_Canopy_2025-08-03.jpg"
+    },
+    "tagine-dajaj": {
+      "file": "tagine-dajaj.jpg",
+      "credit": "Foodista",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Moroccan_food-Chicken_tagine_with_preserved_lemons_and_olives-01.jpg"
+    },
+    "harira": {
+      "file": "harira.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Harira..JPG"
+    },
+    "msemen": {
+      "file": "msemen.jpg",
+      "credit": "Popo le Chien",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Msemmem.jpg"
+    },
+    "bissara": {
+      "file": "bissara.jpg",
+      "credit": "Miansari66",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bissara_(Moroccan_Dip).JPG"
+    },
+    "rfissa": {
+      "file": "rfissa.jpg",
+      "credit": "Khadija Sadek Moudafi",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Good_appetite,_Rfissa_Moroccan_,_health_and_wellness.jpg"
+    },
+    "makroud": {
+      "file": "makroud.jpg",
+      "credit": "Credits to Mourad Ben Abdallah / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Makrouds.JPG"
+    },
+    "atay-naanaa": {
+      "file": "atay-naanaa.jpg",
+      "credit": "Dan4th Nicholas",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Moroccan_mint_tea-01.jpg"
+    },
+    "pizza-margherita": {
+      "file": "pizza-margherita.jpg",
+      "credit": "Shisma",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Margherita_pizza_on_plate.jpg"
+    },
+    "pasta-bolognese": {
+      "file": "pasta-bolognese.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Spaghetti_bolognese_-_Enzo%27s_2026-04-21.jpg"
+    },
+    "beef-burger": {
+      "file": "beef-burger.jpg",
+      "credit": "Len Rizzi (photographer)",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:NCI_Visuals_Food_Hamburger.jpg"
+    },
+    "caesar-salad": {
+      "file": "caesar-salad.jpg",
+      "credit": "Andy Li",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Swedish_Caesar_Salad,_Tiramisu,_tea_-_IKEA_Southampton_2026-03-17.jpg"
+    },
+    "pancakes": {
+      "file": "pancakes.jpg",
+      "credit": "Mae Mu",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg"
+    },
+    "salata-baladi": {
+      "file": "salata-baladi.jpg",
+      "credit": "أحمد ناجي",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Salata_baladi.jpg"
+    },
+    "machboos-shrimp": {
+      "file": "machboos-shrimp.jpg",
+      "credit": "Number55",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Prawn_Biryani.jpg"
+    }
+  }
+}
