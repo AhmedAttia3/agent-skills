@@ -1,0 +1,38 @@
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Specification and index checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate every skill
+        run: python3 scripts/validate_skills.py
+
+      - name: Validate plugin and marketplace manifests
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+          for name in (".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"):
+              path = pathlib.Path(name)
+              if not path.is_file():
+                  sys.exit(f"missing {name}")
+              json.loads(path.read_text(encoding="utf-8"))
+              print(f"ok: {name}")
+          PY

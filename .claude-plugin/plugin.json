@@ -1,0 +1,17 @@
+{
+  "name": "attia-skills",
+  "description": "Hand-picked Agent Skills for real engineering work, maintained by Ahmed Attia.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ahmed Attia",
+    "url": "https://github.com/AhmedAttia3"
+  },
+  "homepage": "https://github.com/AhmedAttia3/attia-skills",
+  "repository": "https://github.com/AhmedAttia3/attia-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "sanad"
+  ]
+}
