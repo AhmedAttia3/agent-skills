@@ -13,6 +13,35 @@ Curated, not generated. Every skill here is used in real work, scoped to one job
 
 ## Install
 
+### Sanad (recommended)
+
+Sanad installs skills natively — no clone, no copy, no plugin manager:
+
+```bash
+sanad skills add AhmedAttia3/agent-skills --skill install-sanad
+```
+
+`--skill` picks one package from a repository that holds several; leave it out only when the source
+contains exactly one skill. The skill lands in the Sanad Home and is available to the agent on the
+next turn. To install into a specific workspace instead, name it:
+
+```bash
+# into a directory
+sanad skills add AhmedAttia3/agent-skills --skill install-sanad --workspace ~/projects/my-app
+# or into a registered workspace by name
+sanad skills add AhmedAttia3/agent-skills --skill install-sanad --workspace my-app
+```
+
+| Command | Effect |
+| --- | --- |
+| `sanad skills list` | Installed skills with their scope and recorded source |
+| `sanad skills update` | Re-fetch from the recorded source; locally edited skills are skipped until `--force` |
+| `sanad skills remove <name>` | Delete the skill and its provenance entry |
+
+Sanad fetches over HTTPS without needing `git` or credentials, rejects unsafe archive entries, and
+screens the content before activating it. This path needs a Sanad Agent build that ships
+`sanad skills` — confirm with `sanad skills --help`.
+
 ### Claude Code (marketplace)
 
 ```bash
@@ -111,7 +140,15 @@ MIT — see [LICENSE](LICENSE).
 
 مستودع صغير لمهارات وكلاء الذكاء الاصطناعي (Agent Skills) المنسّقة يدويًا، وليس مهارات مولّدة تلقائيًا. كل مهارة هنا مستخدمة فعليًا في عمل حقيقي، ومحدودة بمهمة واحدة، ويتحقق منها CI وفق معيار `SKILL.md` المفتوح.
 
-**التثبيت في Claude Code:**
+**التثبيت في سند (الطريقة الأساسية):**
+
+```bash
+sanad skills add AhmedAttia3/agent-skills --skill install-sanad
+```
+
+تثبّت المهارة في Sanad Home وتصبح متاحة للوكيل في الجولة التالية. لتثبيتها داخل مساحة عمل بعينها أضف `--workspace <المسار أو الاسم>`، ولإدارتها لاحقًا: `sanad skills list` و`sanad skills update` و`sanad skills remove <name>`.
+
+**أو في Claude Code:**
 
 ```bash
 /plugin marketplace add AhmedAttia3/agent-skills

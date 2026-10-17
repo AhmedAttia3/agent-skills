@@ -5,8 +5,10 @@ license: MIT
 compatibility: macOS, Windows, or Linux with network access to the official Sanad release and installer endpoints. Basic shell, Git, and FVM are only required for the source/developer path.
 metadata:
   author: Ahmed Attia
-  version: 1.0.0
+  version: 1.1.0
   homepage: https://sanad.eaststarai.com
+  allowed_remote_exec:
+    - sanad.eaststarai.com
 ---
 
 # Install Sanad

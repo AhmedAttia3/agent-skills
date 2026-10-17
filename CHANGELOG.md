@@ -3,6 +3,16 @@
 Notable changes to the skills in this repository. Skills also carry their own
 `metadata.version` in `SKILL.md`.
 
+## 1.2.0 — 2026-10-17
+
+### Added
+
+- Installation now leads with Sanad's native path: `sanad skills add AhmedAttia3/agent-skills --skill install-sanad`, including the workspace scope (`--workspace <path-or-name>`), the `list`/`update`/`remove` lifecycle, and what `--skill` means in a repository that holds several skills. Documented in English and Arabic.
+
+### Changed
+
+- The Claude Code marketplace and manual-copy instructions remain documented as alternatives, after the Sanad path.
+
 ## 1.1.1 — 2026-10-17
 
 ### Fixed

@@ -54,8 +54,9 @@ def warn(where: str, message: str) -> None:
 def parse_frontmatter(text: str, where: str) -> tuple[dict[str, object], str, int]:
     """Parse the small YAML subset the specification allows.
 
-    Supports top-level scalars and one level of nested string maps, which is
-    all `metadata` needs. Anything more exotic is reported, never guessed.
+    Supports top-level scalars, one level of nested string maps, and nested
+    string sequences, which is all `metadata` needs. Anything more exotic is
+    reported, never guessed.
     """
     lines = text.splitlines()
     if not lines or lines[0].strip() != "---":
@@ -69,14 +70,24 @@ def parse_frontmatter(text: str, where: str) -> tuple[dict[str, object], str, in
         return {}, text, 0
 
     data: dict[str, object] = {}
-    current_map: dict[str, str] | None = None
+    current_map: dict[str, object] | None = None
+    current_list: list[str] | None = None
     current_key: str | None = None
 
     for line in lines[1:end]:
         if not line.strip() or line.lstrip().startswith("#"):
             continue
-        indented = line[:1] in (" ", "\t")
         stripped = line.strip()
+        indented = line[:1] in (" ", "\t")
+
+        if stripped.startswith("- "):
+            item = stripped[2:].strip().strip("\"'")
+            if current_list is None:
+                warn(where, f"sequence item without a parent key: {stripped!r}")
+                continue
+            current_list.append(item)
+            continue
+
         if ":" not in stripped:
             warn(where, f"unparsed frontmatter line: {stripped!r}")
             continue
@@ -87,10 +98,17 @@ def parse_frontmatter(text: str, where: str) -> tuple[dict[str, object], str, in
             if current_map is None:
                 warn(where, f"nested value without a parent key: {stripped!r}")
                 continue
-            current_map[key] = value
+            if value:
+                current_map[key] = value
+                current_list = None
+            else:
+                nested_items: list[str] = []
+                current_map[key] = nested_items
+                current_list = nested_items
             continue
 
         current_key = key
+        current_list = None
         if value:
             data[key] = value
             current_map = None
