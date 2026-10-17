@@ -23,7 +23,7 @@ scope.
 | File | | Notes |
 |---|---|---|
 | `run.sh` | KEEP | `start\|stop\|restart\|status\|logs`, PID file + `server.log`, health-check based liveness, bracket-trick kill. |
-| `tunnel.sh` | KEEP | Cloudflare quick tunnel; finds `cloudflared` in the workspace, `$HOME/.sanad/workspaces/first-workspace/`, or `PATH`. |
+| `tunnel.sh` | KEEP | Cloudflare quick tunnel; finds `cloudflared` via `$CLOUDFLARED`, the workspace root, `PATH`, or common bin directories, and never installs it. |
 | `start-all.sh` | KEEP | Server + tunnel, then prints both statuses. |
 | `test-api.sh` | KEEP | Boots a test server on **3100** with `data/test.db`, syncs the catalog into it, runs the smoke test, exits with its status. |
 | `db-backup.sh` | KEEP | Timestamped copy of DB (+WAL/SHM), uploads, catalog images and catalog JSON. |

@@ -9,7 +9,9 @@ LOG_FILE="$ROOT/tunnel.log"
 PORT="${PORT:-3000}"
 
 find_cloudflared() {
-  for candidate in "$ROOT/cloudflared" "$HOME/.sanad/workspaces/first-workspace/cloudflared" "$(command -v cloudflared 2>/dev/null)"; do
+  for candidate in "${CLOUDFLARED:-}" "$ROOT/cloudflared" \
+    "$(command -v cloudflared 2>/dev/null)" "$HOME/.local/bin/cloudflared" \
+    "/usr/local/bin/cloudflared" "/opt/homebrew/bin/cloudflared"; do
     [ -n "${candidate:-}" ] && [ -x "$candidate" ] && { echo "$candidate"; return 0; }
   done
   return 1
@@ -26,7 +28,18 @@ is_running() {
 }
 
 start() {
-  [ -n "$CF_BIN" ] || { echo "❌ لم يتم العثور على cloudflared"; exit 1; }
+  if [ -z "$CF_BIN" ]; then
+    cat <<'EOF'
+❌ لم يتم العثور على cloudflared
+
+   اسأل المستخدم أولًا: ربما لديه نطاق أو استضافة ولا يحتاج نفقًا إطلاقًا.
+   لا تثبّت أي شيء قبل موافقته. إن وافق:
+     macOS:            brew install cloudflared
+     Debian/Ubuntu:    راجع صفحة التحميل الرسمية من Cloudflare
+   أو ضع الـbinary في جذر المشروع، أو اضبط CLOUDFLARED=/path/to/cloudflared
+EOF
+    exit 1
+  fi
   if is_running; then echo "ℹ️  النفق يعمل بالفعل"; url; return 0; fi
   rm -f "$LOG_FILE"
   setsid nohup "$CF_BIN" tunnel --url "http://127.0.0.1:$PORT" --no-autoupdate > "$LOG_FILE" 2>&1 < /dev/null &

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Node.js 22.5 or newer (for node:sqlite) and Python 3 for icon generation. No native build toolchain, database server, or sudo access required. Optional: cloudflared for public share links.
 metadata:
   author: Ahmed Attia
-  version: 1.0.0
+  version: 1.1.1
 ---
 
 # PWA App Builder
@@ -243,7 +243,15 @@ Report the exact commands and their actual output. If something failed, say so w
    to before any risky experiment. Never `push` unless asked. Conventional Commits with an Arabic
    subject: `feat(meals): إضافة فلتر الفئات`.
 2. **Public link** via the Cloudflare quick tunnel (`./scripts/tunnel.sh start`, then read the URL
-   from `tunnel.log`). Ask before starting a tunnel: it exposes the app publicly, and the free
+   from `tunnel.log`). This step is optional and needs two separate approvals:
+   1. **Ask whether they want a public link at all.** If they already own a domain, a reverse
+      proxy, or hosting they can deploy to, they need no tunnel — do not push one.
+   2. **Check `cloudflared` before promising anything** (`scripts/check-host.sh` reports it). If it
+      is missing, say so and ask permission to install it before running any installer; never
+      install a binary silently. Offer `brew install cloudflared`, the official Cloudflare download
+      for their platform, or a `CLOUDFLARED=/path/to/binary` they already have.
+
+   Once approved, explain the exposure: the tunnel publishes the app publicly, and the free
    quick-tunnel hostname is random per restart and carries a bad reputation with Chrome's password
    heuristics (expect a "check your passwords" nag — it is the domain, not your code).
 3. **Docs, once the app is stable**: `docs/API.md` (every route + a copy-paste `curl`),

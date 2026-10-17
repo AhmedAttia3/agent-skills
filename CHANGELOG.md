@@ -3,6 +3,16 @@
 Notable changes to the skills in this repository. Skills also carry their own
 `metadata.version` in `SKILL.md`.
 
+## 1.1.1 — 2026-10-17
+
+### Fixed
+
+- `pwa-app-builder`: `cloudflared` is now resolved portably — `$CLOUDFLARED`, the project root, `PATH`, and common bin directories — instead of a machine-specific workspace path that existed on one host only.
+- `pwa-app-builder`: a public link is now two explicit decisions (does the user even want one, then permission to install `cloudflared`), and `tunnel.sh` prints guidance instead of failing silently.
+- `pwa-app-builder`: `check-host.sh` reads memory and swap on macOS (`sysctl`, `vm_stat`) as well as Linux, and reports low resources only on evidence instead of turning unknown values into a warning.
+- `pwa-app-builder`: removed a dead reference to a `first-workspace/BROWSER-SETUP-AR.md` file that was never part of the skill.
+- `pwa-app-builder`: removed a golden rule that implied approval was needed for the project's own dependencies; the approval requirement is scoped to the optional tunnel.
+
 ## 1.1.0 — 2026-10-17
 
 ### Added

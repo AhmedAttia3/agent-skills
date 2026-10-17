@@ -17,7 +17,7 @@ change.
 | Node.js | portable at `~/node-v24.20.0-linux-x64/bin` — **not on `PATH`** | `export PATH="$HOME/node-v24.20.0-linux-x64/bin:$PATH"` at the top of **every** new shell |
 | `node:sqlite` | available (Node ≥22.5) | `require('node:sqlite')` — no install needed |
 | Port 8090 | occupied by the agent service | App on **3000**, API tests on **3100** |
-| `cloudflared` | borrowed from `~/.sanad/workspaces/first-workspace/cloudflared` | `scripts/tunnel.sh` searches for it |
+| `cloudflared` | not guaranteed to be installed; resolved from `$CLOUDFLARED`, the project root, `PATH`, or common bin directories | `scripts/tunnel.sh` never installs it; ask the user first, and only if they want a public link |
 | `crontab` | permission denied | Schedule inside the app (a 30s `setInterval` in `server/scheduler.js`), not via cron |
 | Python 3 | present (only for `gen-icons.py`) | Icons are rasterised with stdlib `zlib`/`struct` — no Pillow |
 
@@ -87,6 +87,3 @@ instance here can exhaust memory, get the app's server OOM-killed, and require a
 
 If a browser *is* needed and allowed on such a host, still keep it to one short session, pass
 `--no-sandbox` and a dedicated profile dir, and stop it the moment you have the screenshots.
-
-The full headless-Chrome recipe used on this box (flagged as `LD_LIBRARY_PATH` + `FONTCONFIG_FILE`
-+ `setsid` on port 9222) lives in `first-workspace/BROWSER-SETUP-AR.md`.
