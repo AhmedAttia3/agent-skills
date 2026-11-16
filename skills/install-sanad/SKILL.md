@@ -1,11 +1,11 @@
 ---
 name: install-sanad
-description: Install, update, or prepare Sanad for normal use or source development on macOS, Windows, or Linux. Use when an AI agent must inspect a machine for an existing Sanad installation or checkout, explain the release-user and developer-source paths, install the Client and local Agent, install an Agent on a remote server, quickly create a Google Cloud Free Tier server and pair Sanad, update packaged components, or safely update and run a development checkout.
+description: Install, update, or pair Sanad on macOS, Windows, or Linux. Use when an agent must inspect a machine for an existing Sanad installation or checkout, explain the release-user and developer-source paths, install the Client and local Agent, install an Agent on a remote server, update packaged components, or safely update and run a development checkout. It also points to preparation tracks for a Google Cloud Free Tier or Oracle Cloud Always Free server, a browser desktop on a host, and publishing sites over HTTPS with DNS and certificates. Treat mentions of a free or cheap cloud server, Always Free, OCI, Ampere A1, a server browser desktop, a subdomain or API token for a host, publishing a site from a server, or Arabic requests like سيرفر مجاني or سطح مكتب على السيرفر as this skill's job; leave plain VPS price comparisons alone.
 license: MIT
 compatibility: macOS, Windows, or Linux with network access to the official Sanad release and installer endpoints. Basic shell, Git, and FVM are only required for the source/developer path.
 metadata:
   author: Ahmed Attia
-  version: 1.1.0
+  version: 1.3.0
   homepage: https://sanad.eaststarai.com
   allowed_remote_exec:
     - sanad.eaststarai.com
@@ -13,8 +13,10 @@ metadata:
 
 # Install Sanad
 
-Guide the user from inspection through a verified Sanad installation or update.
-Keep the release-user and developer-source workflows separate.
+This page installs, updates, and pairs Sanad, and keeps the release-user and
+developer-source workflows separate. Everything a working host needs beyond that —
+provider choice, a browser desktop, publishing — lives in the optional tracks
+below and is read only when the request calls for it.
 
 ## Safety Rules
 
@@ -44,17 +46,80 @@ Keep the release-user and developer-source workflows separate.
     `https://sanad.eaststarai.com/install.ps1`
 - Do not disable operating-system security controls. Read the latest release
   notes before describing current signing or platform support.
+- Never request, create, or store cloud provider API signing keys, CLI
+  configuration, tenancy or console passwords, or payment details. For Oracle
+  Cloud, the browser Console is the supported path; use an already-configured
+  CLI only when it already exists.
+- Generate any remote desktop password at random on the user's machine, keep it
+  out of this skill, and bind the desktop to loopback behind an SSH tunnel rather
+  than a public port.
+- Keep DNS API tokens root-only, out of this skill, out of scripts the
+  unprivileged account can read, and out of reports; the user creates and rotates
+  them.
 - Preserve Sanad Home and user workspaces during installation and update.
 
-## Google Cloud Fast Route
+## Optional Tracks
 
-For a Google Cloud / GCP / free cloud server request, read
-[references/google-cloud-free-tier.md](references/google-cloud-free-tier.md)
-and follow that specialized release-user route instead of repeating the generic
-local/source questionnaire below. It owns prerequisites, at most two initial
-questions, resource reuse, eligible provisioning, just-in-time pairing, and
-minimal built-in verification. Keep the safety rules above. Do not promise an
-unconditional zero bill or duplicate an existing free allowance.
+The numbered install path below is the main route. A request that needs more opens
+exactly one of these files; each owns its own detail and keeps the safety rules
+above.
+
+- **Google Cloud free-tier server** —
+  [references/google-cloud-free-tier.md](references/google-cloud-free-tier.md):
+  release-user route, at most two initial questions, just-in-time pairing, no
+  promise of an unconditional zero bill.
+- **Oracle Cloud Always Free server** —
+  [references/oracle-cloud-free-tier.md](references/oracle-cloud-free-tier.md):
+  same route plus capacity handling. Confirm the home region before creating
+  anything, and check that the release publishes an artifact for the host's
+  architecture before promising it.
+- **Browser desktop on a host** —
+  [references/remote-desktop-browser.md](references/remote-desktop-browser.md)
+  with [scripts/sanad-desktop.sh](scripts/sanad-desktop.sh), or the `.ps1` twin on
+  Windows after verifying it there. Loopback only behind an SSH tunnel, never a
+  public port; it administers the host, it does not run Client there.
+- **Publishing sites from a host** —
+  [references/web-hosting-prerequisites.md](references/web-hosting-prerequisites.md),
+  [references/dns-duckdns.md](references/dns-duckdns.md) for a DuckDNS subdomain,
+  and [scripts/web-hosting-setup.sh](scripts/web-hosting-setup.sh) plus
+  [scripts/site.conf.template](scripts/site.conf.template). One privileged pass,
+  then the Agent publishes by writing configuration files; ask before any record,
+  certificate, or public port, and open both firewall gates or the site never
+  answers.
+
+## End-to-End Path
+
+This map orders the work for a request like "give me a server I can publish from".
+It does not replace the route files, which own the detail: read the map for the
+sequence, then open the file each phase names. Stop at every checkpoint before
+starting the next phase.
+
+1. **Decide the host and how you reach it.** Work stays on this machine, or it
+   moves to a server? Use an existing alias or create one. *Checkpoint:* SSH to
+   the chosen host works with the alias later steps will use.
+2. **Create or choose the server.** Open
+   [references/google-cloud-free-tier.md](references/google-cloud-free-tier.md) or
+   [references/oracle-cloud-free-tier.md](references/oracle-cloud-free-tier.md)
+   for the provider, and confirm the release publishes an artifact for that host's
+   architecture before promising anything. *Checkpoint:* the instance is running,
+   its address is known, and the login works.
+3. **Pair the Agent.** Request the **Add device** command only now, install without
+   privileges the installer does not need, and accept the installer's built-in
+   verification instead of inventing extra tests. *Checkpoint:* the device reports
+   authenticated and its service stays active in a new session.
+4. **Prepare publishing once.** Read
+   [references/web-hosting-prerequisites.md](references/web-hosting-prerequisites.md),
+   the provider's port section, and
+   [scripts/web-hosting-setup.sh](scripts/web-hosting-setup.sh): create records,
+   install certificates, open both firewall gates, and install the watcher.
+   *Checkpoint:* the hostname resolves, HTTPS answers, and a site written by the
+   unprivileged account is served and then removed again.
+
+Two rules keep the order honest: never request a pairing command before the host
+is ready, and never open a public port or create a record before the server block
+and certificate that will use them are planned. Preparation is finished only when
+the delegated agent can add and remove a site without administrative rights;
+until that is true, an obstacle is still in the way.
 
 ## 1. Inspect the Target
 

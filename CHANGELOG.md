@@ -3,11 +3,32 @@
 Notable changes to the skills in this repository. Skills also carry their own
 `metadata.version` in `SKILL.md`.
 
+## 1.3.0 — 2026-11-10
+
+### Added
+
+- `install-sanad`: an Oracle Cloud fast route for `Always Free` and paid tenancies — tenancy and home-region decisions, aggregate allowance and capacity handling, resource reuse, a scoped SSH rule, just-in-time pairing, and a supervised-test cleanup path.
+- `install-sanad`: a browser desktop route for a remote host, built on KasmVNC with a loopback-only service, a locally generated password, and SSH-tunnel access; no cloud firewall change and no desktop audio or GPU acceleration.
+- `install-sanad`: `scripts/sanad-desktop.sh`, a tested helper with `open`/`start`/`stop`/`status` that reuses an existing tunnel and refuses a busy port, configured entirely through arguments and environment overrides.
+- `install-sanad`: two eval cases — an ARM host with no published agent artifact, and a request for a browser desktop — covering the guidance added here.
+- `install-sanad`: a web-hosting preparation route (`references/web-hosting-prerequisites.md`) that turns one privileged pass into an unprivileged publishing workflow — DNS and its root-only token, records verified through public resolution, certificates without a port, one web server with per-hostname blocks and an HTTP-to-HTTPS redirect, and a single watched drop point the Agent writes to.
+- `install-sanad`: a DuckDNS guide (`references/dns-duckdns.md`) and two more eval cases — preparing a host to publish with HTTPS, and refusing to grant an Agent sudo when publishing stalls.
+- `install-sanad`: `scripts/web-hosting-setup.sh`, a tested idempotent preparation script that installs the web server, creates the Agent's drop directory, installs the validating watcher, removes the stock default page, and prints what stays privileged — plus `scripts/site.conf.template` so each site starts from a known-good server block.
+- `install-sanad`: the skill page is now the install page. The provider, desktop, and publishing routes collapsed into a short `Optional Tracks` block that names each file and the one or two constraints that must not be missed, so the 89 lines of route prose became pointers and the description dropped to 836 characters.
+- `install-sanad`: an end-to-end path in `SKILL.md` that orders host decision, server creation, pairing, and publishing preparation, with a checkpoint between phases and a rule against requesting a pairing command or opening a port ahead of the work that needs it; one more eval case covers that ordering.
+
+### Changed
+
+- `install-sanad`: before promising an install, the Oracle route now requires confirming that the current release publishes a public, signed artifact for the host's platform and architecture, and names the alternatives when it does not.
+- `install-sanad`: the Oracle route gained a publishing section — identify the VCN from the guest's own subnet metadata, open `80,443` in the cloud security list and in the guest firewall, keep exposure narrow, verify from outside the host, and remove the rule when no site needs it.
+- `install-sanad`: the description now triggers on Oracle Cloud, OCI, Always Free, Ampere, browser-desktop phrasing, and publishing requests including subdomains and API tokens — in Arabic too — while leaving plain VPS price comparisons alone.
+
 ## 1.2.0 — 2026-10-17
 
 ### Added
 
 - Installation now leads with Sanad's native path: `sanad skills add AhmedAttia3/agent-skills --skill install-sanad`, including the workspace scope (`--workspace <path-or-name>`), the `list`/`update`/`remove` lifecycle, and what `--skill` means in a repository that holds several skills. Documented in English and Arabic.
+- A ready-to-paste agent prompt per skill, so the agent installs the skill, confirms it, and starts working without the user touching a terminal (English and Arabic).
 
 ### Changed
 

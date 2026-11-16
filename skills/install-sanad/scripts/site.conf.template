@@ -1,0 +1,52 @@
+# Template for one published site. Copy to <sites-dir>/<name>.conf and replace the
+# placeholders. The watcher copies it into the web server, validates it, and
+# reloads; a configuration that fails validation is refused, so one bad site does
+# not take down the others.
+#
+# <HOSTNAME>            the full hostname this site answers on
+# <CERT> / <KEY>        the certificate matching that hostname; a wildcard
+#                       certificate does not cover the apex, and the apex
+#                       certificate does not cover subdomains
+# <APP_PORT>            the loopback port the application listens on
+# <SITE_NAME>           short name used for log files
+
+server {
+    listen 80;
+    server_name <HOSTNAME>;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name <HOSTNAME>;
+
+    ssl_certificate     <CERT>;
+    ssl_certificate_key <KEY>;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_session_cache   shared:SSL:10m;
+
+    client_max_body_size 25m;
+    access_log /var/log/nginx/<SITE_NAME>.access.log;
+    error_log  /var/log/nginx/<SITE_NAME>.error.log;
+
+    location / {
+        proxy_pass         http://127.0.0.1:<APP_PORT>;
+        proxy_http_version 1.1;
+        proxy_set_header   Host              $host;
+        proxy_set_header   X-Real-IP         $remote_addr;
+        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+        proxy_set_header   Upgrade           $http_upgrade;
+        proxy_set_header   Connection        "upgrade";
+        proxy_read_timeout 120s;
+    }
+}
+
+# For a page with no application behind it, drop the location block and serve the
+# markup from the TLS server block instead:
+#
+#     default_type text/html;
+#     return 200 '<!doctype html><title><SITE_NAME></title><p>placeholder</p>';
+#
+# Serving markup this way avoids pointing a document root at a home directory,
+# which the web server's user usually cannot read.
