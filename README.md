@@ -15,6 +15,45 @@ Curated, not generated. Every skill here is used in real work, scoped to one job
 
 ### Sanad (recommended)
 
+#### Let your agent do it
+
+If your agent can run shell commands, paste one of these into the chat. It installs the skill,
+confirms it, reads it, and gets to work — you never open a terminal:
+
+Install Sanad itself:
+
+```text
+Install the install-sanad skill from AhmedAttia3/agent-skills.
+
+Run this yourself:
+
+    sanad skills add AhmedAttia3/agent-skills --skill install-sanad
+
+Then confirm it with `sanad skills list`, read the installed SKILL.md (under your Sanad Home
+skills/ directory), and follow it to install Sanad on this machine. Ask me only if a command fails,
+and tell me what it said.
+```
+
+Build an app:
+
+```text
+Install the pwa-app-builder skill from AhmedAttia3/agent-skills.
+
+Run this yourself:
+
+    sanad skills add AhmedAttia3/agent-skills --skill pwa-app-builder
+
+Then confirm it with `sanad skills list`, read the installed SKILL.md (under your Sanad Home
+skills/ directory), and use it to build: <describe the app you want>.
+```
+
+What happens: the agent runs the command, the skill lands in the Sanad Home and is available on its
+next step with no restart, then it reads `SKILL.md` and works from it. This path needs a Sanad build
+that ships `sanad skills` — check with `sanad skills --help`. If the command is missing, or the agent
+has no shell, use the manual paths below.
+
+#### Or run it yourself
+
 Sanad installs skills natively — no clone, no copy, no plugin manager:
 
 ```bash
@@ -140,7 +179,20 @@ MIT — see [LICENSE](LICENSE).
 
 مستودع صغير لمهارات وكلاء الذكاء الاصطناعي (Agent Skills) المنسّقة يدويًا، وليس مهارات مولّدة تلقائيًا. كل مهارة هنا مستخدمة فعليًا في عمل حقيقي، ومحدودة بمهمة واحدة، ويتحقق منها CI وفق معيار `SKILL.md` المفتوح.
 
-**التثبيت في سند (الطريقة الأساسية):**
+**دع وكيلك يفعل ذلك (الأسرع):** الصق هذا في محادثة الوكيل، وهو يثبّت المهارة ويتأكّد منها ثم يبدأ العمل:
+
+```text
+ثبّت مهارة install-sanad من AhmedAttia3/agent-skills.
+
+نفّذ هذا بنفسك:
+
+    sanad skills add AhmedAttia3/agent-skills --skill install-sanad
+
+ثم تأكّد بـ`sanad skills list`، واقرأ SKILL.md المثبَّت (داخل مجلد skills في Sanad Home)، واتّبعه لتثبيت سند على هذا الجهاز.
+لا تسألني إلا إذا فشل أمر، وأخبرني بما ظهر لك.
+```
+
+**أو شغّلها بنفسك (التثبيت في سند):**
 
 ```bash
 sanad skills add AhmedAttia3/agent-skills --skill install-sanad
